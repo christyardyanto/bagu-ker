@@ -1,36 +1,32 @@
-from random import randint #fungsi randint menghasilkan angka acak dengan tipe data integer
+import random   #fungsi random agar option terpilih acak
 
-#create a list of play options
-t = ["Batu", "Kertas", "Gunting"]
+while True:
+    #membuat list pilihan
+    option = ["Batu", "Kertas", "Gunting"]
+    #var computer acak
+    computer = random.choice(option)
 
-#membuat pemain random ke komputer
-computer = t[randint(0,2)]
-
-#set player to False
-player = False
-
-while player == False:
-#set player to True
-    player = input("Rock, Paper, Scissors?")
+    player = input("Batu, Kertas, Gunting?")
     if player == computer:
-        print("Tie!")
-    elif player == "Rock":
-        if computer == "Paper":
-            print("You lose!", computer, "covers", player)
+        print("Imbang")
+    elif player == "Batu":
+        if computer == "Kertas":
+            print("Kalah!", computer, "membungkus", player)
         else:
-            print("You win!", player, "smashes", computer)
-    elif player == "Paper":
-        if computer == "Scissors":
-            print("You lose!", computer, "cut", player)
+            print("Menang!", player, "menghancurkan", computer)
+    elif player == "Kertas":
+        if computer == "Gunting":
+            print("Kalah!", computer, "memotong", player)
         else:
-            print("You win!", player, "covers", computer)
-    elif player == "Scissors":
-        if computer == "Rock":
-            print("You lose...", computer, "smashes", player)
+            print("Menang!", player, "membungkus", computer)
+    elif player == "Gunting":
+        if computer == "Batu":
+            print("Kalah!", computer, "menghancurkan", player)
         else:
-            print("You win!", player, "cut", computer)
+            print("Menang!", player, "memotong", computer)
     else:
-        print("That's not a valid play. Check your spelling!")
-    #player was set to True, but we want it to be False so the loop continues
-    player = False
-    computer = t[randint(0,2)]
+        print("Error, silahkan cek inputan!")
+    
+    main_lagi = input("Apakah ingin bermain lagi?(Y?N)")
+    if main_lagi == "N" or main_lagi == "n":
+        break
